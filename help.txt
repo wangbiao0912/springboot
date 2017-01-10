@@ -1,0 +1,30 @@
+spring boot 启动
+
+调用 SpringApplication.run(DubboProducer.class, args);,将类class DubboProducer作为source,args` 作为参数传入 .1
+SpringApplication.run将 DubboProducer.class作为构造参数，实例化对象 SpringApplication ，在构造函数中进行初始化 initialize
+将参数resource(DubboProducer.class) 添加到 resources Set 中
+检测当前环境是否为web 环境
+class path 中包含javax.servlet.Servlet,org.springframework.web.context.ConfigurableWebApplicationContext 两个class的为 web环境
+设置初始化器 initializers，将初始化器添加到initializers （ApplicationContextInitializer） list 中
+通过 getSpringFactoriesInstances 方法 获取 ApplicationContextInitializer.class的 对应的 实例
+调用SpringFactoriesLoader.loadFactoryNames 加载jar包中的META-INF/spring.factories 配置文件，获取配置文件中ApplicationContextInitializer.class对应的 class name
+调用createSpringFactoriesInstances 方法初始化 配置文件中获取的class name,并使用AnnotationAwareOrderComparator 排序(类实现了ordered接口，否则为最低优先级)
+设置监听器 listeners
+使用跟 initializers 相同的方式，初始化 配置文件中 ApplicationListener.class 对应的class
+设置 mainApplicationClass 主类
+至此，SpringApplication.run中构造函数完毕，初始化完毕
+调用 SpringApplication 的 run 方法
+同之前方式，根据配置文件，获取SpringApplicationRunListeners对应的实例 EventPublishingRunListener(在构造方法中创建ApplicationEventMulticaster，并装入springApplication的所有listeners)
+调用 SpringApplicationRunListeners的所有 listener (EventPublishingRunListener)的 started方法,而 EventPublishingRunListener的所有listener（ApplicationStartedEvent）方法调用了onApplicationEvent 方法，对listener进行初始化
+调用createAndRefreshContext方法创建ConfigurableApplicationContext对象
+创建并配置ConfigurableEnvironment
+调用所有listener的environmentPrepared方法，广播listener的environment初始化
+创建ConfigurableApplicationContext,web 环境创建AnnotationConfigEmbeddedWebApplicationContext ,非web 环境创建AnnotationConfigApplicationContext
+设置context 的 Environment
+调用postProcessApplicationContext 方法
+调用 applyInitializers 调用所有Initializers的initialize 来初始化springCotext
+调用load(ApplicationContext context, Object[] sources) ，如果是isComponent 则将main bean 加载到context中,处理启动类的注解
+contextLoaded 将ApplicationListener 添加到 Context中 - 对所有listener广播ApplicationPreparedEvent 事件
+调用 refresh(context); refresh the context 调用父类AbstractApplicationContext 的refresh方法
+AbstractApplicationContext 的 refresh() 方法
+   v 
