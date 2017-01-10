@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by wangbiao on 17-1-10.
  */
-@ConfigurationProperties( prefix = "com.web")
+@ConfigurationProperties(locations="classpath:application.yml", prefix = "com.web")
 @Component
 public class modelTest {
     private String name;

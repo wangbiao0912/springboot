@@ -17,7 +17,7 @@ public class CronComponent {
     //每10分钟执行一次
     public void doSomething() {
         //jvm内存的使用情况打印
-        System.out.println(PublicUtil.getMemoryStatus()+"");;
+       log.info(PublicUtil.getMemoryStatus()+"");;
     }
 
 }

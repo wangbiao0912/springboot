@@ -2,6 +2,8 @@ package com.spring.controller;
 
 import com.spring.model.modelTest;
 import lombok.extern.slf4j.Slf4j;
+
+import org.apache.logging.slf4j.SLF4JLoggingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -25,6 +27,8 @@ public class StartBegin implements CommandLineRunner {
 	private String userName;
     @Value("${com.web.name}")
     private  String beginName;
+    @Autowired
+    private modelTest mo;
 	@Override
 	public void run(String... args) throws Exception {
 
@@ -35,12 +39,12 @@ public class StartBegin implements CommandLineRunner {
     //每10分钟执行一次
     @Scheduled(fixedRate = 1000 * 60 * 1)
     private void doSomething() {
-        modelTest mo=new modelTest();
 	    log.info("取出来的值："+mo.getName()+"......."+mo.getTitle());
 	    //new Thread().sleep(111);
         log.info(userName+"..");
         //jvm内存的使用情况打印
         jvm.doSomething();;
+       
     }
 
 	

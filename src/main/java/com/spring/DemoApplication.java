@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //@EnableScheduling
-@Slf4j    ideaByDay
+@Slf4j    
 //@RestController
 //@EnableAutoConfiguration
 public class DemoApplication {

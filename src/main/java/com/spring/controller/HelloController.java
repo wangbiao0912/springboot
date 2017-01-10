@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -23,7 +24,7 @@ public class HelloController {
     public String beginLogin(int userId, Model model)
     {
         System.out.println(userId+">>>>>>");
-        model.addAttribute("userName","我是测试的");
+      //  model.addAttribute("userName","我是测试的");
 
       // return "测试页面";
         return "userLogin";
