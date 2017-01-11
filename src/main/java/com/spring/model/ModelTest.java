@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  */
 @ConfigurationProperties(locations="classpath:application.yml", prefix = "com.web")
 @Component
-public class modelTest {
+public class ModelTest {
     private String name;
     private String title;
     private String action;

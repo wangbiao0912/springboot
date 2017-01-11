@@ -1,9 +1,8 @@
 package com.spring.controller;
 
-import com.spring.model.modelTest;
+import com.spring.model.ModelTest;
 import lombok.extern.slf4j.Slf4j;
 
-import org.apache.logging.slf4j.SLF4JLoggingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -28,7 +27,7 @@ public class StartBegin implements CommandLineRunner {
     @Value("${com.web.name}")
     private  String beginName;
     @Autowired
-    private modelTest mo;
+    private ModelTest mo;
 	@Override
 	public void run(String... args) throws Exception {
 

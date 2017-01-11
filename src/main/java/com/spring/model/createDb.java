@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class createDb {
+public class CreateDb {
 
     @Id
     @GeneratedValue
