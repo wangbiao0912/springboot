@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 // @Controller   // 这个注解是返回模板页面的
 @RequestMapping("/user")
-@RestController
+@RestController  //@RestController等于这个注解相加 @ResponseBody+@Controller
 public class HelloController {
     @RequestMapping("/index")
     public String index(){
