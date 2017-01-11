@@ -1,7 +1,15 @@
 package com.spring.controller;
 
+import com.spring.dao.QueryDbInfoDao;
+import com.spring.model.CreateDb;
+import com.spring.service.QueryDb;
+import com.spring.service.iml.QueryDbIml;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 
 /**
  * Created by wangbiao on 2017/1/10.
@@ -15,7 +23,7 @@ public class EndCrontroller {
 
     /**
      * 新的方法
-     * @param id
+     * @param
      * @return
      */
     @RequestMapping(value = "/{userid}/say" ,method = RequestMethod.GET)
@@ -38,4 +46,22 @@ public class EndCrontroller {
         return "出来了；";
     }
 
+
+    //查询值
+    @Autowired
+    private QueryDbInfoDao qd;
+
+    QueryDb q=new QueryDbIml();
+    @PostMapping(value = "queryUser")
+    public List<CreateDb> query()
+    {
+        return  q.queryAllCreare();
+    }
+
+    @PutMapping(value = "updateUser/{userId}")
+    public CreateDb updateUser(@PathVariable("userId") int id,@RequestParam("userName")String userName,@RequestParam("age") String age)
+    {
+        CreateDb c=new CreateDb(id,userName,age);
+        return  qd.save(c);
+    }
 }

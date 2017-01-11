@@ -1,6 +1,5 @@
 package com.spring.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,8 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Created by wangbiao on 17-1-6.
  */
-@Controller
-//@RequestMapping("/user")
+// @Controller   // 这个注解是返回模板页面的
+@RequestMapping("/user")
 @RestController
 public class HelloController {
     @RequestMapping("/index")
