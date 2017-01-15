@@ -27,4 +27,15 @@ class path 中包含javax.servlet.Servlet,org.springframework.web.context.Config
 contextLoaded 将ApplicationListener 添加到 Context中 - 对所有listener广播ApplicationPreparedEvent 事件
 调用 refresh(context); refresh the context 调用父类AbstractApplicationContext 的refresh方法
 AbstractApplicationContext 的 refresh() 方法
-   v 
+
+
+
+ Spring Boot开发者工具并不仅限于本地开发，在运行远程应用时你也可以使用一些
+ 特性。远程支持是可选的，通过设置 spring.devtools.remote.secret 属性可
+ 以启用它，例如：
+ spring.devtools.remote.secret=mysecret
+ 注 在远程应用上启用 spring-boot-devtools 有一定的安全风险，生产环境中最
+ 好不要使用。
+ 远程devtools支持分两部分：一个是接收连接的服务端端点，另一个是运行在IDE里
+ 的客户端应用。如果设置 spring.devtools.remote.secret 属性，服务端组件
+ 会自动启用，客户端组件必须手动启动。

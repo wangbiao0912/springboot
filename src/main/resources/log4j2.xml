@@ -6,9 +6,9 @@
 			<PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%l]-%m%n" />
 		</Console>
 		<!-- 文件日志 -->
-		<!-- <Console name="framework" target="framework">
+		<Console name="framework" target="framework">
 			<PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%l]-%m%n" />
-		</Console> -->
+		</Console>
 		<Routing name="Routing">
 			<Routes pattern="$${sd:type}">
 				<Route>
@@ -30,8 +30,9 @@
 		<!-- 全局配置 -->
 		<Root level="INFO">
 			<AppenderRef ref="Routing" />
+			<!--控制台的-->
 			<AppenderRef ref="Console" />
-			<!-- <AppenderRef ref="framework"></AppenderRef> -->
+			<AppenderRef ref="framework"></AppenderRef>
 		</Root>
 	</Loggers>
 </Configuration>
