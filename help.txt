@@ -29,6 +29,8 @@ contextLoaded 将ApplicationListener 添加到 Context中 - 对所有listener广
 AbstractApplicationContext 的 refresh() 方法
 
 
+.
+
 
  Spring Boot开发者工具并不仅限于本地开发，在运行远程应用时你也可以使用一些
  特性。远程支持是可选的，通过设置 spring.devtools.remote.secret 属性可
